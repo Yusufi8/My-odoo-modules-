@@ -1,3 +1,31 @@
 <odoo>
-    <menuitem id="menu_college_root" name="College ERP"/>
+    <!-- Root Menu -->
+    <menuitem id="menu_college_root" name="College ERP" web_icon="college_erp,static/description/icon.png" sequence="10"/>
+
+    <!-- Dashboard -->
+    <menuitem id="menu_college_dashboard" name="Dashboard" parent="menu_college_root" action="action_college_dashboard" sequence="1"/>
+
+    <!-- Students -->
+    <menuitem id="menu_college_students" name="Students" parent="menu_college_root" action="action_college_student" sequence="10"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_college_configuration" name="Configuration" parent="menu_college_root" sequence="90"/>
+
+    <!-- Departments -->
+    <menuitem id="menu_college_departments" name="Departments" parent="menu_college_configuration" action="action_college_department" sequence="10"/>
+
+    <!-- Courses -->
+    <menuitem id="menu_college_courses" name="Courses" parent="menu_college_configuration" action="action_college_course" sequence="20"/>
+
+    <!-- Tools Menu -->
+    <menuitem id="menu_college_tools" name="Tools" parent="menu_college_root" sequence="95"/>
+
+    <!-- Enroll Student -->
+    <menuitem id="menu_enroll_students" name="Enroll Student" parent="menu_college_tools" action="action_enroll_wizard" sequence="10"/>
+
+    <!-- Export Students -->
+    <menuitem id="menu_export_students" name="Export Students" parent="menu_college_tools" action="action_export_student_wizard" sequence="20"/>
+
+    <!-- Reports Menu -->
+    <menuitem id="menu_college_reports" name="Reports" parent="menu_college_root" sequence="100"/>
 </odoo>
