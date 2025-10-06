@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_department_admin,access_department_admin,model_college_department,college_erp.group_college_admin,1,1,1,1
+access_course_admin,access_course_admin,model_college_course,college_erp.group_college_admin,1,1,1,1
+access_student_admin,access_student_admin,model_college_student,college_erp.group_college_admin,1,1,1,1
+access_department_teacher,access_department_teacher,model_college_department,college_erp.group_college_teacher,1,0,0,0
+access_course_teacher,access_course_teacher,model_college_course,college_erp.group_college_teacher,1,0,0,0
+access_student_teacher,access_student_teacher,model_college_student,college_erp.group_college_teacher,1,1,0,0
+access_student_student,access_student_student,model_college_student,college_erp.group_college_student,1,0,0,0
+access_export_wizard,access_export_wizard,model_export_student_wizard,,1,0,0,0
+access_enroll_wizard,access_enroll_wizard,model_college_enroll_wizard,,1,0,0,0
+access_dashboard,access_dashboard,model_college_dashboard,,1,0,0,0

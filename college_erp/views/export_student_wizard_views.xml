@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_export_student_wizard_form" model="ir.ui.view">
+        <field name="name">export.student.wizard.form</field>
+        <field name="model">export.student.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Export Students to Excel">
+                <group>
+                    <field name="student_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button string="Export" type="object" name="action_export" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <field name="file_name" invisible="1"/>
+                    <field name="file_data" filename="file_name" readonly="1"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_export_student_wizard" model="ir.actions.act_window">
+        <field name="name">Export Students</field>
+        <field name="res_model">export.student.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

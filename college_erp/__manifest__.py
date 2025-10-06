@@ -1,0 +1,26 @@
+{
+    'name': 'College ERP',
+    'version': '1.1',
+    'summary': 'Manage Students, Courses, Departments',
+    'author': 'Yusuf Khan',
+    'category': 'Education',
+    'depends': ['base'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'data/sequences.xml',
+        'views/menus.xml',
+        'views/department_views.xml',
+        'views/course_views.xml',
+        'views/student_views.xml',
+        'views/enroll_wizard_views.xml',
+        'views/export_student_wizard_views.xml',
+        'views/student_report_views.xml',
+        'views/dashboard_views.xml',
+    ],
+    'test': [
+        'tests/test_college_erp.py',
+    ],
+    'installable': True,
+    'application': True,
+}

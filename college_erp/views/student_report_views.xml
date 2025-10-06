@@ -1,0 +1,42 @@
+<odoo>
+    <template id="report_student_template">
+        <t t-call="web.external_layout">
+            <t t-set="title">Student Report</t>
+            <div class="page">
+                <h2>College Students</h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Roll Number</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Department</th>
+                            <th>Total Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td><t t-esc="o.roll_number"/></td>
+                                <td><t t-esc="o.name"/></td>
+                                <td><t t-esc="o.course_id.name"/></td>
+                                <td><t t-esc="o.department_id.name"/></td>
+                                <td><t t-esc="o.total_fee"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <report
+        id="action_report_student"
+        string="Student Report"
+        model="college.student"
+        report_type="qweb-pdf"
+        name="college_erp.report_student_template"
+        file="college_erp.report_student_template"
+        print_report_name="'Student Report'"
+    />
+</odoo>
