@@ -1,0 +1,23 @@
+{
+    'name': 'Small Business Daily Operations Manager',
+    'version': '1.0.0',
+    'summary': 'Manage tasks, expenses and inventory for small businesses',
+    'description': 'Tasks, expenses, inventory, dashboard and PDF reports. Compatible with Odoo 18.',
+    'author': 'Assistant for Yusuf',
+    'category': 'Operations',
+    'depends': ['base','web'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu_views.xml',
+        'views/task_views.xml',
+        'views/expense_views.xml',
+        'views/inventory_views.xml',
+        'views/staff_views.xml',
+        'views/dashboard_views.xml',
+        'views/wizard_views.xml',
+        'report/report_expense_views.xml',
+        'report/report_inventory_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

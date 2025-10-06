@@ -1,0 +1,22 @@
+<odoo>
+    <record id="action_report_expense" model="ir.actions.report">
+        <field name="name">Business Expense Report</field>
+        <field name="model">business.expense</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">small_business_ops_o18.report_expense_template</field>
+        <field name="report_file">small_business_ops_o18.report_expense_template</field>
+    </record>
+
+    <template id="report_expense_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h2>Expense: <t t-esc="o.name"/></h2>
+                    <p><strong>Amount:</strong> <t t-esc="o.amount"/> <t t-esc="o.currency_id.symbol or ''"/></p>
+                    <p><strong>Submitted By:</strong> <t t-esc="o.employee_id.name or ''"/></p>
+                    <p><strong>Date:</strong> <t t-esc="o.date"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

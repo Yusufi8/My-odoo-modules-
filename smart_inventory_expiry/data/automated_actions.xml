@@ -1,0 +1,16 @@
+<odoo>
+    <record id="action_notify_near_expiry" model="ir.cron">
+        <field name="name">Notify Near Expiry Products</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="state">code</field>
+        <field name="code">
+product_ids = env['product.product'].search([('is_near_expiry','=',True)])
+for product in product_ids:
+    product.message_post(body=f"Product {product.name} is near expiry in {product.days_to_expiry} days.")
+        </field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

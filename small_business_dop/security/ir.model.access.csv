@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_daily_task_user,access_daily_task_user,model_daily_task,,1,1,1,1
+access_business_expense_user,access_business_expense_user,model_business_expense,,1,1,1,1
+access_business_inventory_user,access_business_inventory_user,model_business_inventory,,1,1,1,1
+access_business_staff_user,access_business_staff_user,model_business_staff,,1,1,1,1
+access_business_dashboard_user,access_business_dashboard_user,model_business_dashboard,,1,0,0,0

@@ -1,0 +1,42 @@
+<odoo>
+    <record id="action_dashboard" model="ir.actions.act_window">
+        <field name="name">Operations Dashboard</field>
+        <field name="res_model">business.dashboard</field>
+        <field name="view_mode">form,kanban</field>
+        <field name="target">current</field>
+    </record>
+
+    <record id="view_dashboard_form" model="ir.ui.view">
+        <field name="name">business.dashboard.form</field>
+        <field name="model">business.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="tasks_done"/>
+                        <field name="expenses_approved"/>
+                        <field name="low_stock"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dashboard_kanban" model="ir.ui.view">
+        <field name="name">business.dashboard.kanban</field>
+        <field name="model">business.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div><strong>Tasks Done:</strong> <field name="tasks_done"/></div>
+                            <div><strong>Expenses Approved:</strong> <field name="expenses_approved"/></div>
+                            <div><strong>Low Stock:</strong> <field name="low_stock"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<odoo>
+    <record id="action_report_inventory" model="ir.actions.report">
+        <field name="name">Inventory Report</field>
+        <field name="model">business.inventory</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">small_business_ops_o18.report_inventory_template</field>
+        <field name="report_file">small_business_ops_o18.report_inventory_template</field>
+    </record>
+
+    <template id="report_inventory_template">
+        <t t-call="web.basic_layout">
+            <h2>Inventory Report</h2>
+            <table class="table table-sm">
+                <thead>
+                    <tr><th>Item</th><th>Qty</th><th>Location</th><th>Date</th></tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="o">
+                        <tr>
+                            <td><t t-esc="o.name"/></td>
+                            <td><t t-esc="o.quantity"/></td>
+                            <td><t t-esc="o.location"/></td>
+                            <td><t t-esc="o.date"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </t>
+    </template>
+</odoo>

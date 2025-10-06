@@ -1,0 +1,31 @@
+<odoo>
+    <record id="action_smart_inventory_dashboard" model="ir.actions.act_window">
+        <field name="name">Inventory Dashboard</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_smart_inventory_kanban"/>
+    </record>
+
+    <menuitem id="menu_smart_inventory_dashboard" name="Dashboard"
+              parent="menu_smart_inventory_root" action="action_smart_inventory_dashboard"/>
+
+    <record id="view_smart_inventory_kanban" model="ir.ui.view">
+        <field name="name">product.product.kanban.dashboard</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="name"/></strong><br/>
+                            Batch: <field name="batch_number"/><br/>
+                            Expiry in: <field name="days_to_expiry"/> days<br/>
+                            <t t-if="record.is_low_stock">⚠ Low Stock!</t><br/>
+                            <t t-if="record.is_near_expiry">⚠ Near Expiry!</t>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

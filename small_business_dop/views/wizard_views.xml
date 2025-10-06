@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_quick_task_wizard" model="ir.ui.view">
+        <field name="name">quick.task.wizard.form</field>
+        <field name="model">business.quick.task.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="assigned_to"/>
+                    </group>
+                    <footer>
+                        <button string="Create" type="object" name="action_create_task" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quick_expense_wizard" model="ir.ui.view">
+        <field name="name">quick.expense.wizard.form</field>
+        <field name="model">business.quick.expense.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="currency_id"/>
+                        <field name="employee_id"/>
+                    </group>
+                    <footer>
+                        <button string="Create" type="object" name="action_create_expense" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

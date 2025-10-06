@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="menu_small_business_root" name="Small Business Ops"/>
+    <menuitem id="menu_small_business_dashboard" name="Dashboard" parent="menu_small_business_root" action="action_dashboard"/>
+    <menuitem id="menu_small_business_tasks" name="Tasks" parent="menu_small_business_root" action="action_task"/>
+    <menuitem id="menu_small_business_expenses" name="Expenses" parent="menu_small_business_root" action="action_expense"/>
+    <menuitem id="menu_small_business_inventory" name="Inventory" parent="menu_small_business_root" action="action_inventory"/>
+    <menuitem id="menu_small_business_staff" name="Staff" parent="menu_small_business_root" action="action_staff"/>
+</odoo>
