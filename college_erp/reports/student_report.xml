@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_report_student" model="ir.actions.report">
+        <field name="name">Student Report</field>
+        <field name="model">college.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">college_erp.report_student_document</field>
+        <field name="report_file">college_erp.report_student_document</field>
+        <field name="binding_model_id" ref="model_college_student"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="report_student_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        
+                        <!-- Header -->
+                        <div class="row mb-4">
+                            <div class="col-12 text-center">
+                                <h2>Student Information Report</h2>
+                            </div>
+                        </div>
+
+                        <!-- Student Details -->
+                        <div class="row">
+                            <div class="col-6">
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <td><strong>Roll Number:</strong></td>
+                                        <td><span t-field="o.roll_number"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Student Name:</strong></td>
+                                        <td><span t-field="o.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Email:</strong></td>
+                                        <td><span t-field="o.email"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Phone:</strong></td>
+                                        <td><span t-field="o.phone"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Date of Birth:</strong></td>
+                                        <td><span t-field="o.date_of_birth"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Age:</strong></td>
+                                        <td><span t-field="o.age"/> years</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Gender:</strong></td>
+                                        <td><span t-field="o.gender"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-sm table-borderless">
+                                    <tr>
+                                        <td><strong>Course:</strong></td>
+                                        <td><span t-field="o.course_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Course Code:</strong></td>
+                                        <td><span t-field="o.course_id.code"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Department:</strong></td>
+                                        <td><span t-field="o.department_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Course Fee:</strong></td>
+                                        <td>₹<span t-field="o.course_id.fee"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total Fee (with Tax):</strong></td>
+                                        <td>₹<span t-field="o.total_fee"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Attendance:</strong></td>
+                                        <td><span t-field="o.attendance_percentage"/>%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Status:</strong></td>
+                                        <td><span t-field="o.state"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="row mt-3" t-if="o.address">
+                            <div class="col-12">
+                                <strong>Address:</strong><br/>
+                                <span t-field="o.address"/>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row mt-5">
+                            <div class="col-12 text-center">
+                                <p class="text-muted">
+                                    Generated on <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

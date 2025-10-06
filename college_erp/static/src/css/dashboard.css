@@ -1,0 +1,108 @@
+.college_dashboard {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.college_dashboard h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.dashboard_tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard_tile {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.dashboard_tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard_tile.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dashboard_tile.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.dashboard_tile.warning {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.dashboard_tile.info {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.dashboard_tile.danger {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.dashboard_tile.secondary {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.tile_value {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.tile_label {
+    font-size: 16px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.department_section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.department_section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.department_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.department_table thead {
+    background-color: #667eea;
+    color: white;
+}
+
+.department_table th,
+.department_table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.department_table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.department_table tbody tr:last-child td {
+    border-bottom: none;
+}

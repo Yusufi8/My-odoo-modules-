@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="college_erp.DashboardTemplate">
+        <div class="college_dashboard">
+            <h1>College ERP Dashboard</h1>
+            
+            <t t-if="state.isLoading">
+                <div class="text-center">
+                    <i class="fa fa-spinner fa-spin fa-3x"/>
+                    <p>Loading dashboard...</p>
+                </div>
+            </t>
+            
+            <t t-else="">
+                <div class="dashboard_tiles">
+                    <div class="dashboard_tile primary">
+                        <div class="tile_label">Total Students</div>
+                        <div class="tile_value"><t t-esc="state.data.total_students"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile success">
+                        <div class="tile_label">Active Students</div>
+                        <div class="tile_value"><t t-esc="state.data.active_students"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile warning">
+                        <div class="tile_label">Draft Students</div>
+                        <div class="tile_value"><t t-esc="state.data.draft_students"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile info">
+                        <div class="tile_label">Graduated</div>
+                        <div class="tile_value"><t t-esc="state.data.graduated_students"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile danger">
+                        <div class="tile_label">Alumni</div>
+                        <div class="tile_value"><t t-esc="state.data.alumni_students"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile secondary">
+                        <div class="tile_label">Total Fee Collection</div>
+                        <div class="tile_value">₹<t t-esc="Math.round(state.data.total_fees).toLocaleString()"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile primary">
+                        <div class="tile_label">Departments</div>
+                        <div class="tile_value"><t t-esc="state.data.total_departments"/></div>
+                    </div>
+                    
+                    <div class="dashboard_tile success">
+                        <div class="tile_label">Courses</div>
+                        <div class="tile_value"><t t-esc="state.data.total_courses"/></div>
+                    </div>
+                </div>
+                
+                <div class="department_section">
+                    <h2>Department-wise Statistics</h2>
+                    <table class="department_table">
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Students</th>
+                                <th>Courses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="state.data.department_data" t-as="dept" t-key="dept.name">
+                                <tr>
+                                    <td><t t-esc="dept.name"/></td>
+                                    <td><t t-esc="dept.student_count"/></td>
+                                    <td><t t-esc="dept.course_count"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
